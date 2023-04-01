@@ -7,7 +7,7 @@
 <body>
 	<div class="login-box">
 		<h1>Login</h1>
-		<form action="welcome.html">
+		<form action="welcome.html" onsubmit="return validateForm()">
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username" placeholder="Enter username">
 			<label for="password">Password</label>
@@ -16,9 +16,29 @@
 		</form>
 		<p>or</p>
 		<div id="otpless"></div>
+		</div>
 		<script type="text/javascript" src="https://otpless.com/auth.js"></script>
+		<script type="text/javascript">
+			function validateForm() {
+				var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  
+  if (username == "") {
+    alert("Please enter a username.");
+    return false;
+  }
+  
+  if (password == "") {
+    alert("Please enter a password.");
+    return false;
+  }
+				
+	return true; // Return true if the form is valid and can be submitted
+  }
+
+	   
 		
 	
-	</div>
+	</script>
 </body>
 </html>
